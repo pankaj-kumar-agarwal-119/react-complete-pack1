@@ -1,0 +1,25 @@
+<html>
+
+<head></head>
+
+<body></body>
+<script>
+    //ES5
+    function Employee() {
+        this.name = "Mohan";
+        this.age = 21;
+        console.log("this value : ", this);
+    }
+    var ob1 = new Employee();
+    console.log("The object details : ", ob1);
+    console.log("*******************************");
+    var x = Employee();
+    console.log("The x : ", x);
+
+    //In ES6 we can not use new operator with arrow function
+    console.log("------------------------------");
+    const Foo = () =>{};
+    const obFoo1 = new Foo();
+</script>
+
+</html>

@@ -1,0 +1,55 @@
+<html>
+
+<head></head>
+
+<body>
+    <p>
+        <h1>Demo for lexical this</h1>
+        <button id="bt1">Click Me</button>
+    </p>
+</body>
+<script>
+//   document.getElementById("bt1").addEventListener("click",function(){
+//     console.log("this : ",this);
+//   })
+
+//   document.getElementById("bt1").addEventListener("click",()=>{
+//     console.log("this : ",this);
+//   })
+  /*
+  ABove output referes to : 
+  document object
+  window object
+If we are using the callback function with any of the event listener, the always use the normal function
+But if we are creating anested function inside the callback function, then better to us ethe arrow function
+  */
+  document.getElementById("bt1").addEventListener("click",function(){
+    
+    setTimeout(function(){
+        console.log("this : ",this);//window object 
+    })
+  })
+
+  document.getElementById("bt1").addEventListener("click",function(){
+
+    setTimeout(()=>{
+        console.log("this : ",this);//dom object scope
+    })
+  })
+
+  document.getElementById("bt1").addEventListener("click",function(){
+    
+    setTimeout(()=>{
+        setTimeout(()=>{
+            console.log("this : ",this);//dom object scope
+        },1000)
+    })
+  })
+  /*
+If we have n number of nested arrow function, it will inherit this from the first parent scope
+  */
+
+
+</script>
+
+</html>

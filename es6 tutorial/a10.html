@@ -1,0 +1,22 @@
+<html>
+
+<head></head>
+
+<body>
+    <p>
+        <h1>Demo for lexical this</h1>
+        <button id="bt1">Click Me</button>
+    </p>
+</body>
+<script>
+    this.nameI = "SOhan";//this refers to window object
+const personObj = {
+    nameI : "Mohan",
+    sayHi : ()=>{
+        this.nameI = "Rohan";
+        console.log(`name is : ${this.nameI}`);
+    }
+}
+personObj.sayHi();
+</script>
+</html>

@@ -1,0 +1,29 @@
+<html>
+
+<head></head>
+
+<body></body>
+<script>
+    function Person(){
+        this.age = 21;
+        // setTimeout(function(){
+        //     console.log('this : ',this);
+        //     this.age++;
+        //     console.log(`Age is : ${this.age}`);//
+        // },1000);
+
+        setTimeout(()=>{
+            this.age++;
+            console.log(`Age is : ${this.age}`);//
+        },1000);
+    }
+    const personObj = new Person();
+    /*
+   ES6 do not have their own this context. SO, they inherit this from the surrounding function
+
+   But ES5 function do have their own this context 
+    */
+
+</script>
+
+</html>

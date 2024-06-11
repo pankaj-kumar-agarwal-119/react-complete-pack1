@@ -1,0 +1,39 @@
+<html>
+    <head></head>
+    <body></body>
+    <script>
+        class Emp {
+            id;
+            name;
+            sal;
+            constructor(id,name,sal){
+              this.id = id;
+              this.name = name;
+              this.sal = sal;
+            }
+            get id(){
+                return this.id;
+            }
+            set id(value){
+                this.id = value;
+            }
+            get name(){
+                return this.name;
+            }
+            set name(value){
+                this.name = value;
+            }
+            get sal(){
+                return this.sal;
+            }
+            set sal(value){
+                this.sal = value;
+            }
+            getDetails(){
+                console.log(`${this.id} , ${this.name} , ${this.sal}`)
+            }
+        }
+        let ob1 = new Emp("111","Mohan",1200);
+        ob1.getDetails();
+    </script>
+</html>

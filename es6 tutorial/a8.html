@@ -1,0 +1,29 @@
+<html>
+
+<head></head>
+
+<body></body>
+<script>
+   const obj = {
+    nameOfEmp : 'Alice',
+    greet: function(){
+        //Regular function has its own 'this'
+        setTimeout(function(){
+            console.log("this : ",this);
+         console.log(`Hello, ${this.nameOfEmp}`);//undefined
+        },1000);
+    },
+    greetWithArrow : function(){
+
+        //Arrow function uses 'this' from the enclosing env
+        setTimeout(()=>{
+        console.log(`Hello, ${this.nameOfEmp}`);//Alice
+        },1000);
+    }
+   }
+   obj.greet();
+   obj.greetWithArrow();
+
+</script>
+
+</html>

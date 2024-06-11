@@ -1,0 +1,49 @@
+<html>
+
+<head></head>
+
+<body></body>
+<script>
+    class Car {
+        #make;
+        #model;
+        #year;
+        constructor(make, model, year) {
+            this.#make = make;
+            this.#model = model;
+            this.#year = year;
+        }
+
+        get make(){
+            return this.#make;
+        }
+
+        set make(value){
+            this.#make = value;
+        }
+
+        get model(){
+            return this.#model;
+        }
+
+        set model(value){
+            this.#model = value;
+        }
+
+        get year(){
+            return this.year;
+        }
+
+        set year(value){
+            this.#year = value;
+        }
+
+        displayDetails() {
+            console.log(`Make : ${this.#make} , Model : ${this.#model} , Year : ${this.#year}`);
+        }
+    }
+    let ob1 = new Car("aaaa","bbb","ccc");
+    ob1.displayDetails();
+</script>
+
+</html>

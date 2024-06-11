@@ -1,0 +1,28 @@
+<html>
+
+<head></head>
+
+<body></body>
+<script>
+    function add() {
+        console.log("The argument object : ", arguments);
+    }
+    add(1, 2);
+    add(4, 6, 9);
+    add(4, 4, 4, 4, 4, 6);
+
+    //In ES6 we are handling the dynamic no of arguments through rest operator
+    console.log("--------------------------------------------------------");
+    const addES6 = (...args) => console.log(`Argument list : ${args}`);
+    addES6(1, 2);
+    addES6(4, 6, 9);
+    addES6(4, 4, 4, 4, 4, 6);
+
+    console.log("*******************************************");
+    const addES6ArgumnetsObj = (...args) => console.log(`Argument list : ${arguments}`);
+    addES6ArgumnetsObj(1, 2);
+    addES6ArgumnetsObj(4, 6, 9);
+    addES6ArgumnetsObj(4, 4, 4, 4, 4, 6);
+</script>
+
+</html>

@@ -1,0 +1,122 @@
+<html>
+
+<head></head>
+
+<body></body>
+<script>
+    class Employee {
+  // Private fields
+  #employeeId;
+  #firstName;
+  #lastName;
+  #email;
+  #salary;
+
+  // Default constructor
+//   constructor() {
+//     this.#employeeId = '';
+//     this.#firstName = '';
+//     this.#lastName = '';
+//     this.#email = '';
+//     this.#salary = 0;
+//   }
+
+  // Parameterized constructor
+  constructor(employeeId, firstName, lastName, email, salary) {
+    this.#employeeId = employeeId;
+    this.#firstName = firstName;
+    this.#lastName = lastName;
+    this.#email = email;
+    this.#salary = salary;
+  }
+
+  // Getter and Setter methods
+  get employeeId() {
+    return this.#employeeId;
+  }
+
+  set employeeId(value) {
+    this.#employeeId = value;
+  }
+
+  get firstName() {
+    return this.#firstName;
+  }
+
+  set firstName(value) {
+    this.#firstName = value;
+  }
+
+  get lastName() {
+    return this.#lastName;
+  }
+
+  set lastName(value) {
+    this.#lastName = value;
+  }
+
+  get email() {
+    return this.#email;
+  }
+
+  set email(value) {
+    this.#email = value;
+  }
+
+  get salary() {
+    return this.#salary;
+  }
+
+  set salary(value) {
+    this.#salary = value;
+  }
+
+  // Instance methods
+  getFullName() {
+    return `${this.#firstName} ${this.#lastName}`;
+  }
+
+  getAnnualSalary() {
+    return this.#salary * 12;
+  }
+
+  // Static methods
+  static compareSalaries(emp1, emp2) {
+    return emp1.salary > emp2.salary ? emp1 : emp2;
+  }
+
+  static isSameEmailDomain(emp1, emp2) {
+    const domain1 = emp1.email.split('@')[1];
+    const domain2 = emp2.email.split('@')[1];
+    return domain1 === domain2;
+  }
+}
+
+// Usage examples
+
+// Using the default constructor
+const defaultEmp = new Employee();
+console.log(defaultEmp.getFullName()); // Output: " "
+console.log(defaultEmp.getAnnualSalary()); // Output: 0
+
+// Using the parameterized constructor
+const emp1 = new Employee('E001', 'John', 'Doe', 'john.doe@example.com', 5000);
+console.log(emp1.getFullName()); // Output: "John Doe"
+console.log(emp1.getAnnualSalary()); // Output: 60000
+
+const emp2 = new Employee('E002', 'Jane', 'Smith', 'jane.smith@example.com', 6000);
+console.log(emp2.getFullName()); // Output: "Jane Smith"
+console.log(emp2.getAnnualSalary()); // Output: 72000
+
+// Comparing salaries
+const higherSalaryEmp = Employee.compareSalaries(emp1, emp2);
+console.log(higherSalaryEmp.getFullName()); // Output: "Jane Smith"
+
+// Checking if employees have the same email domain
+const sameDomain = Employee.isSameEmailDomain(emp1, emp2);
+console.log(sameDomain); // Output: true
+
+
+</script>
+
+</html>
