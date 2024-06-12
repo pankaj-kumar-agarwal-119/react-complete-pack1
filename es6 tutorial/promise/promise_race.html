@@ -1,0 +1,39 @@
+<html>
+<head></head>
+<body></body>
+<script>
+    const fun1 = () => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("First fun")
+            }, 3000);
+        })
+    }
+    const fun2 = () => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("Second fun")
+            }, 2000);
+        })
+    }
+    const fun3 = () => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject("went wrong")
+            }, 1000);
+        })
+    }
+    Promise.race([fun1(), fun2(), fun3()]).then(response => {
+        console.log("The result of race is : ", response);
+    }).catch(error => {
+        console.log("Somethng went wrong : ", error);
+    })
+    /*
+Output : 
+The result of race is :  Third fun
+
+But, if we reject inside fun3() then output is : 
+The result of race is :  Third fun
+    */
+</script>
+</html>

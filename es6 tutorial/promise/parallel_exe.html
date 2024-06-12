@@ -1,0 +1,50 @@
+<html>
+
+<head></head>
+
+<body></body>
+<script>
+    const fun1 = () => {
+        const promiseObj = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('First Statement');
+            }, 1000);
+        });
+        return promiseObj;
+    }
+
+    const fun2 = () => {
+        const promiseObj = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('Second Statement');
+            }, 2000);
+        });
+        return promiseObj;
+    }
+
+    const fun3 = () => {
+        const promiseObj = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('Third Statement');
+            }, 3000);
+        });
+        return promiseObj;
+    }
+    const func4 = () => {
+        const promise1 = fun1();
+        const promise2 = fun2();
+        const promise3 = fun3();
+       //Promise.all allows us to wait for multiple promises to get resolved
+       Promise.all([promise1,promise2,promise3]).then(response=>{
+        console.log(`The final response after all promises get resolved : ${response}`);
+        console.log('the first promise response : ',response[0]);
+        console.log('the second promise response : ',response[1]);
+        console.log('the third promise response : ',response[2]);
+       }).catch(error=>{
+        console.log(`The error is : ${error}`);
+       });
+    }
+    func4();
+</script>
+
+</html>

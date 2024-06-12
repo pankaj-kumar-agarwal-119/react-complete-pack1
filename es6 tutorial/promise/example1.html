@@ -1,0 +1,79 @@
+<html>
+
+<head></head>
+
+<body></body>
+<script>
+    const fun1 = () => {
+        console.log("Second Statement");
+    }
+    const fun2 = () => {
+        console.log("First statement");
+        fun1();
+        console.log("Third statement");
+    }
+    // fun2();
+    /*
+First Statement
+Second Statement
+Third Statemenet
+    */
+    //Above example will work very fine because we dont have any async operation in between
+    const funi1 = () => {
+        setTimeout(() => {
+            console.log("Second Statement");
+        }, 2000);
+    }
+    const funi2 = () => {
+        console.log("First statement");
+        funi1();
+        console.log("Third statement");
+    }
+    // funi2();
+    /*
+Output : 
+First statement
+Third statement
+Second Statement
+
+To solve this problem we have to use callback function
+    */
+const funi3 = (callbackFun)=>{
+    setTimeout(() => {
+            console.log("Second Statement");
+            callbackFun();
+        }, 2000);
+}
+const callbackFun = ()=>{
+    console.log("Third statement");
+}
+const funi4 = ()=>{
+    console.log("First statement");
+    funi3(callbackFun);
+}
+// funi4();
+/*
+First statement
+Second Statement
+Third statement
+Expected output
+
+Same above program we can write in diff manner
+*/
+const funxi3 = (xcallbackFun)=>{
+    setTimeout(() => {
+            console.log("Second Statement");
+            xcallbackFun();
+        }, 2000);
+}
+
+const funxi4 = ()=>{
+    console.log("First statement");
+    funxi3(()=>{
+    console.log("Third statement");
+});
+}
+funxi4();
+</script>
+
+</html>

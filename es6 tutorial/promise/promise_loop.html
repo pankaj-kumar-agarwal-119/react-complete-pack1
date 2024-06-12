@@ -1,0 +1,25 @@
+<html>
+    <head></head>
+    <body></body>
+    <script>
+        let user_list_ids = [1,2,3];
+        const getData = (id)=>{
+          return fetch("https://reqres.in/api/users/"+id).then(response=>{
+            return response.json();
+          }).catch(error=>{
+            console.log("The error is : ",error);
+          })
+        }
+        let promiseArr = [];
+        for(let i=0;i<user_list_ids.length;i++){
+            promiseArr.push(getData(user_list_ids[i]));
+        }
+        Promise.all(promiseArr).then(response=>{
+            console.log("The output : ",response);
+        }).catch(error=>{
+            console.log('The all promise error is :',error); 
+        }).finally(()=>{
+            console.log('All operation done successfully!');
+        })
+    </script>
+</html>

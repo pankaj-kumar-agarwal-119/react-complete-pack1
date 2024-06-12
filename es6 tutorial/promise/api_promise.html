@@ -1,0 +1,31 @@
+<html>
+<head></head>
+<body></body>
+<script>
+    const url1 = "https://reqres.in/api/users?page=2";
+    const promise1 = fetch(url1);
+    console.log("Api call res : ", promise1);
+    promise1.then(response => {
+        console.log('The response is : ', response);
+        return response.json();//this will agin return primse
+    })
+    .then(response=>{
+        console.log("The final output is : ",response);
+    })
+    .catch(error => {
+        console.log('The error is : ', error);
+    })
+    //another better way to wrinte above code
+    //below is also an example of promise chaining
+    fetch("https://reqres.in/api/users?page=2")
+    .then(response=>{
+        return response.json();//it will agin return promise
+    })
+    .then(response=>{
+     console.log('The output is : ',response);
+    })
+    .catch(error=>{
+        console.log('The error is : ',error);
+    })
+</script>
+</html>

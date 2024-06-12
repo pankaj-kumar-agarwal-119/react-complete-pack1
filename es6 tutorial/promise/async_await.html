@@ -1,0 +1,21 @@
+<html>
+
+<head></head>
+
+<body></body>
+<script>
+    const fetchApi = async (id) => {
+        try {
+            let resPromiseObj1 = await fetch(`https://reqres.in/api/users/${id}`);
+            let response = await resPromiseObj1.json();
+            console.log('The response is :',response);
+        }
+        catch (error) {
+            console.log('The error is : ', error);
+        }
+    }
+    fetchApi(1);
+    fetchApi(2);
+</script>
+
+</html>

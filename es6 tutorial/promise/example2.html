@@ -1,0 +1,46 @@
+<html>
+<head></head>
+<body></body>
+<script>
+    const fun1 = () => {//returning promise object
+        const promiseObj = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                let flag = false;
+                if (flag) {
+                    resolve('Second Statement');
+                }
+                else {
+                    reject("Operation failed");
+                }
+            }, 2000);
+        })
+        return promiseObj;
+    }
+
+    const fun2 = () => {//not returning anything
+        console.log("Third Statement");
+    }
+
+    const fun3 = () => {
+        console.log("First statement");
+        let promiseObject = fun1();
+        promiseObject.then(response => {
+            console.log(response);
+            fun2();
+        }).catch(error => {
+            console.log('Something went wrong : ', error);
+        })
+    }
+    fun3();
+    /*
+Output when flag isn true
+First statement
+Second Statement
+Third Statement
+
+Again check the output when flag is false
+First statement
+Something went wrong :  Operation failed
+    */
+</script>
+</html>
