@@ -1,0 +1,101 @@
+<html>
+    <head></head>
+    <body></body>
+    <script>
+        let obj = {
+            name : "Mohan",
+            3 : "sdsd"
+        }
+        let keys = Object.keys(obj);
+        for(let i=0;i<keys.length;i++){
+            console.log("===> ",typeof(keys[i]));
+        }
+
+        /*map also contains key:value pair. But here the kay can be of
+        i)string
+        ii)function
+        iii)object
+        iv)any primitive type
+
+        methods : get() , set() , delete() , clear() , mapObj2.keys() : This will return all keys , clear() : To clear all the enteries in map object
+
+        */
+       //setting the key as string
+       const mapObj = new Map();
+       mapObj.set("age",21);
+       console.log("Age is : ",mapObj.get("age"));
+       //checking for the key in map object
+       console.log("Contains age : ",mapObj.has('age'));//true
+       console.log("Contains name : ",mapObj.has('name'));//false
+
+       //Deleting the element
+       mapObj.delete("age");
+       console.log("Age after deletion is : ",mapObj.get("age"));
+
+       //clearing the map
+       let mapObj2 = new Map();
+       mapObj2.set("name","Mohan");
+       mapObj2.set("age",21);
+       mapObj2.set("depart","Engineering");
+
+       //deleting all values of map
+    //    for(let key of mapObj2.keys()){
+    //      console.log('key is : ',key);
+    //      mapObj2.delete(key);
+    //    }
+
+        //clear all map object entries
+        // mapObj2.clear();
+
+       console.log("The map object is : ",mapObj2);
+
+       //Iterating over keys
+        for(let key of mapObj2.keys()){
+            console.log("key is : ",key);
+        }
+
+       //Iterating over values
+       for(let value of mapObj2.values()){
+            console.log("value is : ",value);
+        }
+
+       //iterating over real enries
+       for(let entry of mapObj2.entries()){//return a matrix that is array of array
+            console.log("entry is : ",entry[0]+","+entry[1]);//each entry is in array format
+        }
+
+        //forEach
+        mapObj2.forEach((value,key)=>{
+             console.log(`${key} : ${value}`);
+        })
+
+        //trying to store the complex type as key of map
+        mapObj2.clear();
+        const obj1 = {
+            name : "Mohan",
+            age : 21
+        }
+        mapObj2.set(obj1,"employee1");
+        console.log("The mapped emp : ",mapObj2.get(obj1));
+
+        const fun1 = () => {
+          return false;
+        }
+        mapObj2.set(fun1,"employee2");
+        console.log("The 2nd mapped emp : ",mapObj2.get(fun1));
+
+        /*
+       Create map
+       Make entry for object as key
+       Make entry for function as key
+       make entry for name as string as key
+       make entry for age as string as key
+       make entry for depart as string as key
+
+       get all keys , values , entries .
+       delete all string keys entry (Need to delete only entry that are string in nature)
+       clear()
+        */
+
+    </script>
+</html>
