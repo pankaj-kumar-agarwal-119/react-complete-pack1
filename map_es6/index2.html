@@ -1,0 +1,69 @@
+<html>
+    <head></head>
+    <body></body>
+    <script>
+         /*
+       Create map object
+       Make entry for object as key
+       Make entry for function as key
+       make entry for name as string as key
+       make entry for age as string as key
+       make entry for depart as string as key
+
+       get all keys , values , entries .
+       delete all string keys entry (Need to delete only entry that are string in nature)
+       clear()
+        */
+    let mapObj1 = new Map();
+    let emp1 = {
+        id : 1,
+        name : "Mohan",
+        depart : "Engineering"
+    }
+    let emp2 = {
+        id : 2,
+        name : "Sohan",
+        depart : "Finance"
+    }
+    mapObj1.set(emp1,"admin");//key & value pair
+    mapObj1.set(emp2,"sub-admin");
+    
+    //Add function as a key
+    const paySalary = ()=>{
+        //logic
+    }
+    const generateSalarySlip = ()=>{
+        //logic
+    }
+    const generateOfferLetter = ()=>{
+        //logic
+    }
+    const generateRelivingLetter = ()=>{
+        //logic
+    }
+    mapObj1.set(paySalary,"Finance");
+    mapObj1.set(generateSalarySlip,"Finance");
+    mapObj1.set(generateOfferLetter,"HR");
+    mapObj1.set(generateRelivingLetter,"HR");
+
+    console.log("mapped value for function is : ",mapObj1.get(paySalary));
+
+    //add string as key
+    mapObj1.set("comapnyName","Abc private limited");
+    mapObj1.set("companyAdd","hubly colony");
+
+    for(let x of mapObj1.keys()){
+     if(typeof(x)=="string"){
+        mapObj1.delete(x);
+     }
+    }
+console.log("map object is : ",mapObj1);
+/*
+create map object + create string as key (bookStoreName ,totalBooks ) + create function as key (addUser , issueBook , returnBook) + 
+create object as key {categoryId : 1,categoryImg : ""} ===> Spiritual
+{latitute : 1,longitude : ""} ===> Koramangala
+
+*/
+
+    </script>
+</html>

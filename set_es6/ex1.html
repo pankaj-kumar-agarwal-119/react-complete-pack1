@@ -1,0 +1,63 @@
+<html>
+    <head></head>
+    <body></body>
+    <script>
+        const set = new Set();
+        set.add(1);
+        set.add(2);
+        set.add(3);
+        set.add(11);
+        set.add(12);
+        console.log("set is : ",set);
+
+        //checking the values
+        console.log(set.has(2));//true
+        console.log(set.has(100));//false
+        console.log("--------------------------------------------------");
+
+        //delete elements
+        set.delete(3);
+        console.log("set is : ",set);
+        console.log("--------------------------------------------------");
+
+        //Iterating over the values
+        for(let value of set.values()){
+            console.log('===> ',value);
+        }
+        console.log("--------------------------------------------------");
+
+        //Iterating over entries
+        for(let entry of set.entries()){//matrix : array of arrays
+            console.log("entry : ",entry[0]);
+        }
+
+        //forEach
+        set.forEach((value)=>{
+            console.log("value : ",value);
+        })
+
+        //non primitive types 
+        const obj = {key : "value"};
+        set.add(obj);
+        console.log(set.has(obj));//true
+
+        //removing duplicate values. pass rray as an argument to Set constructor
+        let arr = [1,2,3,4,4,4,5,7,7,9];
+        const setObj = new Set(arr);
+        //convert set to array again 
+        arr = [...setObj];
+        console.log("List of unique values : ",arr);
+
+        //Union (merge of 2 set objects)
+        const set1 = new Set([1,2,3]);
+        const set2 = new Set([3,4,5]);
+        const union = [...set1,...set2];
+        console.log("Union is : ",union);
+
+        //Intersection
+        const intersection = new Set([...set1].filter((x)=>{
+            return set2.has(x)
+        }));
+        console.log("intersection is : ",intersection);
+    </script>
+</html>
