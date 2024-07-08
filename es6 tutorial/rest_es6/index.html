@@ -1,0 +1,78 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+</body>
+<script>
+    //Example 1 : Using args as an array to find sum of all elements
+    function calculate(...args) {//args acts as an proper array object
+        //here args acts as a proper array. We can use push,pop, forEach,map, some,any() functions
+        let sum = 0;
+        args.forEach((ele) => {
+            sum = sum + ele;
+        })
+        console.log('The sum is : ', sum);
+    }
+    calculate(1, 2);
+    calculate(1, 4, 7);
+    calculate(1, 4, 7, 9, 9, 9);
+    calculate(1, 5, 6, 7, 8, 9);
+
+    //concatenate parameters using the rest operator
+    function concatenate(...items) {
+        //here items is an array
+        console.log("items : ", items);
+        return items.join(" ");
+    }
+    let ans1 = concatenate("Hello", "World!");
+    let ans2 = concatenate("Javascript", "is", "awesome", "scripting language");
+    console.log("First answer is : ", ans1);
+    console.log("Second answer is : ", ans2);
+
+    //Logging messages
+    function logMessage(level, ...messages) {
+        const timestamp = new Date().toISOString();
+        console.log(`${timestamp}:${level} | ${messages.join(",")}`);
+    }
+    logMessage("Info", "Application started");
+    logMessage("Error", "Unexpected error happened", "Something went wrong");
+
+    //Filtering arguments : 
+    function filterNumbers(...args) {
+        return args.filter((ele) => {
+            return ele % 2 == 0;
+        })
+    }
+    let result11 = filterNumbers(1, 2, 3, 4, 6);
+    let result12 = filterNumbers(5, 2, 5, 7, 9);
+    console.log("result 11 : ", result11);
+    console.log("result 12 : ", result12);
+
+    //Create array using the rest parameter
+    function createArray(...items) {//here items is parameter
+        return items;
+    }
+    var r1 = createArray(1, 2, 3);
+    console.log("The created array : ", r1);
+
+
+    var r2 = createArray(1, 2, 3, 90, 99);//arguments
+    console.log("The created array : ", r2);
+
+
+    var r3 = createArray(1, 2, 3, 87, 7, 56, 5);
+    console.log("The created array : ", r3);
+
+    //Using multiple parameters
+    function fixArguments(a, b, c, ...d) {
+        console.log(`${a} , ${b} , ${c} , ${d}`);
+        // 1 , 3 , 7 ,[9,9,8]
+    }
+    fixArguments(1, 3, 7, 9, 9, 8);
+</script>
+
+</html>

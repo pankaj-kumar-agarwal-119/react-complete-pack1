@@ -1,0 +1,2 @@
+Rest parameters : This parameter allows the function to accept an indefinite number of arguments as an array, providing a cleaner approach. 
+Now the rest parameter acts as a real array.

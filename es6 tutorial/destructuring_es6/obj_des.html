@@ -1,0 +1,86 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+</body>
+<script>
+    const { name, age } = { name: "Mohan", age: 21 };
+    console.log(`Name : ${name} | Age : ${age}`);
+
+    //Using alais : Renaming variables
+    const { emp_name: employeeName, emp_age: employeeAge } = { emp_name: "Mohan", emp_age: 21 };
+    console.log(`Name is ${employeeName} and age is ${employeeAge}`);
+
+    //default values
+    const { doc_name = "Guest", doc_age = 21 } = { doc_name: "Mohan" };
+    console.log(`${name} , ${doc_age}`);//Mohan , 21
+
+    //nested destructuring
+    const user_details = {
+        em_name: "Mohan",
+        em_age: 21,
+        em_address: {
+            city: "Bangalore",
+            state: "karnataka"
+        }
+    }
+    const { em_name, em_age, em_address: { city, state } } = user_details;
+    console.log(`${em_name} , ${em_age} , ${city} , ${state}`);
+
+    // Use Case, destructuring in function parameter
+    function printUser({ name, age }) {
+        console.log(`Name : ${name} , Age : ${age}`);
+    }
+    const user = { name: "Mohan", age: 21 };
+    printUser(user);
+
+
+    //    Destructure the api response
+    const response = {
+        data: {
+            user: {
+                id: 1,
+                name: "Mohan"
+            },
+            status: "success"
+        }
+    }
+
+    function printApiResponse({ data: { user: { id, name }, status } }) {//destructuring function parameter
+        console.log(`Id : ${id} , Name : ${name}`);
+    }
+    printApiResponse(response);
+
+
+    //response as array
+    const response_new = {
+        data: {
+            users: [{
+                id: 1,
+                name: "Mohan"
+            },
+            {
+                id: 2,
+                name: "Sohan"
+            }],
+            status: "success"
+        }
+    }
+    function printResArr({ data: { users: [...items],status } }) {
+        for (let i = 0; i < items.length; i++) {
+            printObjectProperly(items[i]);
+        }
+    }
+    function printObjectProperly({ id, name }) {
+        console.log(`==> ${id} | ${name}`);
+    }
+    printResArr(response_new);
+
+
+</script>
+
+</html>

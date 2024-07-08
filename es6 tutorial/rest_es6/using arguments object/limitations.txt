@@ -1,0 +1,19 @@
+Limitation of arguments object : 
+1)Not a real Array : We can not use push,pop , forEach function
+2)In Es6 arrow function we don't have any arguments object
+   function calculate() {
+       let calculateIt = () => {
+           console.log("arguments object : ", arguments);
+       }
+       calculateIt();
+   }
+   calculate(1, 2, 4, 6, 7, 8, 9);
+
+
+Output : 
+
+Note : The calculateIt is an es6 function , so it does not have the arguments object. It is taking the parent function arguments object.
+
+
+3)Performance concern
+Alternative of parameters object in ES6 is rest parameters

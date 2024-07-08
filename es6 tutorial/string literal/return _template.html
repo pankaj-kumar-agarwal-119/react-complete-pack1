@@ -1,0 +1,29 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+
+    </body>
+    <script>
+        function createUserprofileCard(user){
+         return `
+        <div style="border:1px solid #ccc;padding:10px;width:300px;border-radius:5px;box-shadow:0 2px 6px #ccc;">
+          <img src="${user.imageUrl}" style="width:100%";border-radius:5px;"/>
+          <h2>${user.name}</h2>
+          <p><strong>Email : </strong> ${user.email}</p>
+          <p>${user.bio}</p>
+        <div>
+         `;
+       }
+       const user = {
+           name : "Amitabh bacchan",
+           email : "amitabh@gmail.com",
+           bio : "A indian film star having a lot of great films in past 30 years",
+           imageUrl : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Indian_actor_Amitabh_Bachchan.jpg/440px-Indian_actor_Amitabh_Bachchan.jpg"
+       }
+       const userCard = createUserprofileCard(user);
+       document.body.innerHTML += userCard;
+
+    </script>
+</html>

@@ -1,0 +1,32 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+</body>
+<script>
+    function greet(name = "Guest") {
+        console.log(`Hello ${name}`);
+    }
+    greet();//Hello guest
+    greet("Mohan");//hello Mohan
+
+    //Example 2 
+    function calculateArea(width = 10, height = 5) {
+        return width * height;
+    }
+    let ans1 = calculateArea(20, 30);
+    console.log("Area is : ", ans1);
+    let ans2 = calculateArea();
+    console.log("Area is : ", ans2);
+    let c1 = calculateArea(11);
+
+    //Example 3 
+    
+
+</script>
+
+</html>

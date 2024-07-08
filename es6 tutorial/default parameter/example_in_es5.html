@@ -1,0 +1,33 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+</body>
+<script>
+    //Example 1 : Usong the OR operator
+    function greet(name) {//undefined => false
+        name = name || "Guest";
+        console.log("The name is : ", name);
+    }
+    greet();
+    greet("Mohan");
+
+    //Example 2 : Using the typeof operator
+    function calculateArea(width, height) {
+        console.log(`width=${width} , height=${height}`);
+        width = typeof width != 'undefined' ? width : 10;
+        height = typeof height != 'undefined' ? height : 5;
+        return width * height;
+    }
+    let ans3 = calculateArea();
+    console.log("The first area is : ", ans3);
+    let ans4 = calculateArea(10, 6);
+    console.log("the second area is : ", ans4);
+
+</script>
+
+</html>

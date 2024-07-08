@@ -1,0 +1,3 @@
+Destructuring is a powerful feature introduced in ES6 that allows developers to extract : 
+i)values from array
+ii)property from object
