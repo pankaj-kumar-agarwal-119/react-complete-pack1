@@ -1,0 +1,69 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+</body>
+<script>
+    //Using spread for object (Coping object values into anothet object)
+    const ob1 = { name: "Mohan", age: 21 };//add is 100
+    const ob2 = { ...ob1 };//7000 address assigned to new object the ref stored in variable ob2
+    console.log('The copied object is : ', ob2);
+
+    //combining objects
+    const o1 = { a: 1, b: 2 };
+    const o2 = { c: 10, d: 20, e: 35 };
+    const o3 = { ...o1, ...o2 };
+    console.log("The combined object is : ", o3);
+
+
+    //Overwriting object
+    const o11 = { a: 10, b: 20 };
+    const o12 = { c: 30, b: 12, d: 78 };
+    const o13 = { ...o11, ...o12 };//{a: 10,c: 30, b: 12, d: 78}
+    console.log("Overwriting b property : ", o13);
+
+    /*
+    Craete 3 objects , combine then into 4th object + copy 4th object values int 5th object + Create 6th object and combine 5th and 6th object
+    so that atleast 3 value got overwrite
+    */
+    const y1 = {
+        a: 10,
+        b: 20,
+        c: 30
+    }
+    const y2 = { d: 11, e: 9 };
+    const y3 = { f: 11, g: 110 };
+    const y4 = { ...y1, ...y2, ...y3 };
+    const y5 = { ...y4 };
+    const y6 = { d: 111, g: 78, c: 45, k: 89, z: 98 };
+    const y7 = { ...y6, ...y5 };
+    console.log('the final output after spreading and then coping and then overwriting is :', y7);
+
+    //Spread elements in string
+    const str = "Hello world";
+    const strArr = [...str];//['H','e','l'........]
+    console.log("String array is : ", strArr);
+
+
+    //Create 2 string and merge them into 3rd string and finally create array of final string
+    function mergeStringToArray(str1, str2) {
+        const mergedStr = str1 + str2;
+        const arrayStr = [...mergedStr];
+        console.log("Merged string : ", mergedStr);
+        console.log("Merged string array : ", arrayStr);
+    }
+    mergeStringToArray("hello", "world");
+
+
+
+
+
+
+
+</script>
+
+</html>

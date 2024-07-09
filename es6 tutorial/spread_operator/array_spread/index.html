@@ -1,0 +1,67 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+</body>
+<script>
+    //copying values
+    let ar1 = [1, 2, 3];
+    let ar2 = [...ar1];
+    console.log("The ar2 is : ", ar2);
+
+    //merging 2 arrays
+    let ar3 = [1, 2, 3];
+    let ar4 = [4, 5, 6];
+    let ar5 = [...ar3, ...ar4];
+    console.log("The merged ar5 is : ", ar5);
+
+    //create 3 arrays and combine them all into 4th array and finally copy then into 5th array and print it
+    const x1 = [1, 2, 5];
+    const x2 = [8, 7, 8];
+    const x3 = [9, 9, 5];
+    const x4 = [...x1, ...x2, ...x3];//[1,2,5,8,7,8,9,9,5]
+    const x5 = [...x4];
+    console.log("The x5 is : ", x5);
+
+    //Adding elements to array
+    const numbers = [1, 2, 3];
+    const moreNumbers = [...numbers, 78, 99, 100];
+    console.log("The added elements with existing array is : ", moreNumbers);
+
+    //Spreading elements in function call
+
+
+    let numberItems = [1, 2, 3];
+    function add(a, b, c) {
+        console.log("The sum is ", (a + b + c));
+    }
+    add(...numberItems);//add(1,2,3)
+
+
+    //diff between the rest and spread
+    let myNums = [1, 2, 3, 4, 5, 6];
+    function multiply(...arr) {//all values 1,2,3,4,5,6 are resting inside variable arr
+
+    }
+    //    multiply(1,2,3,4,5,6);
+    multiply(...myNumss)
+
+    //Now create the function add in such a manner that can take values from spread operator and can also handle n number of element sum
+    const c1 = [1, 2];
+    const c2 = [7, 8];
+    const c3 = [7, 1, 2];
+    function sumNums(...nums) {//rest parameter
+        let finalAns = nums.reduce((sum, ele) => {//nums is array
+            return sum + ele;
+        }, 0);
+        console.log('Final sum is : ', finalAns);
+    }
+    sumNums(...c1, ...c2, ...c3);//sumNums(1,2,7,8,7,1,2)
+
+</script>
+
+</html>

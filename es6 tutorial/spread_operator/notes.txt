@@ -1,0 +1,1 @@
+It is a powerful feature of ES6 that allows us to expand dat of iterable into individual elements
