@@ -1,0 +1,134 @@
+<html>
+
+<head></head>
+
+<body></body>
+<script>
+    const add = (a, b) => {
+        return a + b;
+    }
+    let result = add(2, 5);
+    console.log(`The sum is : ${result}`);
+
+    //       Note 1 : Arrow function with single line of statement
+    // Q1 : implicit return when we have single express
+    // When the arrow function contains only one line of code inside the curly braces then we can remove the curly braces + return statement
+
+    const add2 = (a, b) => a + b;
+
+    //find average of 5 
+    const calculateAverage = (p, c, m, h, e) => (p + c + m + h + e) / 5.0;
+    const result2 = calculateAverage(92, 99, 98, 97, 91);
+    console.log(`The average is : ${result2}`);
+
+    // Note 2 : Single parameter : When there is one parameter , the parentheses around the parameter list can be removed
+    //First way
+    const square = (x) => x * x;
+    //Second way
+    const square2 = x => x * x;//we can remove parenthesis if 1 arg
+    console.log(`Result 1 : ${square(2)}`);
+    console.log(`Result 2 : ${square2(4)}`);
+
+    // Note 3 : If no parameter , then it is required to use empty parentheses
+    const greet = () => `Hello World!`;
+    console.log(`The welcome message is : ${greet()}`);
+
+    // Key features: 
+    // i)”No argument object in arrow function”
+    const myFun = (a, b) => {
+        console.log("Tyhe argument obj : ", arguments);
+        return a + b;
+    }
+
+    add(1, 2);
+    add(4, 6, 9);
+    add(4, 4, 4, 4, 4, 6);
+
+    //In ES6 we are handling the dynamic no of arguments through rest operator
+    console.log("--------------------------------------------------------");
+    const addES6 = (...args) => console.log(`Argument list : ${args}`);
+    addES6(1, 2);
+    addES6(4, 6, 9);
+    addES6(4, 4, 4, 4, 4, 6);
+
+    console.log("*******************************************");
+    // const addES6ArgumnetsObj = (...args) => console.log(`Argument list : ${arguments}`);
+    // addES6ArgumnetsObj(1, 2);
+    // addES6ArgumnetsObj(4, 6, 9);
+    // addES6ArgumnetsObj(4, 4, 4, 4, 4, 6);
+
+    /*No ‘new’ keyword
+ Arrow function in ES6 can not be used as an constructor
+ In ES5 we can use new operator with functions to create object 
+ In ES5 if a function is called with a new operator then it behaves like a constructor. But if it is called normally the function acts as normal
+ */
+
+    //ES5
+    function Employee() {
+        this.name = "Mohan";//this will refer to the object for which the constructor has been called
+        this.age = 21;
+        console.log("this value : ", this);
+    }
+    var ob1 = new Employee();
+    console.log("The object details : ", ob1);
+    console.log("*******************************");
+    var x = Employee();//nomal function call
+    console.log("The x : ", x);
+
+
+    //In ES6 we can not use new operator with arrow function
+    console.log("------------------------------");
+    const Foo = () => { };
+    // const obFoo1 = new Foo();
+    //error : Foo is not a constructor
+
+    // Lexical ‘this’ 
+    // Unlike the traditional ES5 function, the arrow function do not have their own ‘this’ context.They inherit ‘this’ from the parent scope
+    // Note: ES6 function/arrow function do not have their own this context.ES5 function have their own this context
+    function Person() {
+        this.age = 21;
+
+
+        setTimeout(function () {
+            console.log('this : ', this);
+            this.age++;
+            console.log(`Age is : ${this.age}`);//
+        }, 1000);
+
+
+        setTimeout(() => {
+            this.age++;
+            console.log(`Age is : ${this.age}`);//
+        }, 1000);
+    }
+    const personObj = new Person();
+    /*
+     ES6 do not have their own this context. SO, they inherit this from the surrounding function
+     But ES5 function do have their own this context
+      */
+
+
+    //Example 2
+    // this.nameOfEmp = "Mohan"
+    const obj = {
+        nameOfEmp: 'Alice',
+        greet: function () {
+            //Regular function has its own 'this'
+            setTimeout(function () {
+                console.log("this : ", this);//window
+                console.log(`Hello, ${this.nameOfEmp}`);//undefined
+            }, 1000);
+        },
+        greetWithArrow: function () {//parent is obj
+            //Arrow function uses 'this' from the enclosing env
+            setTimeout(() => {
+                console.log(`Hello, ${this.nameOfEmp}`);//Alice
+            }, 1000);
+        }
+    }
+    obj.greet();
+    obj.greetWithArrow();
+
+</script>
+
+</html>

@@ -1,0 +1,22 @@
+<html>
+
+<head></head>
+
+<body>
+
+</body>
+<script>
+    function Employee(empName, empAge, empDepart) {
+        this.empName = empName;
+        this.empAge = empAge;
+        this.empDepart = empDepart;
+        this.getEmpDetails = function () {
+            console.log("Employee Name : " + this.empName + " , Employee Age : " + this.empAge + " , Employee Depart : " + this.empDepart);
+        }
+    }
+    var ob1 = new Employee("Mohan", 21, "Engineering");
+    ob1.getEmpDetails();
+
+</script>
+
+</html>

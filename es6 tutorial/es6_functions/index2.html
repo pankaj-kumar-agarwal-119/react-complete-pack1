@@ -1,0 +1,59 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <button id="bt1">Click Me</button>
+</body>
+<script>
+    document.getElementById("bt1").addEventListener("click", function () {
+
+        console.log("this1 : ", this);//btn
+    })
+
+    document.getElementById("bt1").addEventListener("click", () => {
+
+        console.log("this2 : ", this);//window
+    })
+
+    document.getElementById("bt1").addEventListener("click", function () {
+        
+        //this will refer to btn
+        setTimeout(function () {
+            console.log("this3 : ", this);//window
+        }, 200);
+
+        setTimeout(() => {
+            console.log("this4 : ", this);//btn
+        }, 200);
+
+    })
+
+    //this inside and outside the object
+    // this.nameI = "SOhan";//this refers to window object
+    const personObj = {
+        nameI: "Mohan",
+        sayHi: function () {
+            console.log("this for sayHi : ", this);//personObj
+            const x = () => {
+                console.log(`this1 is : ${this}`);//personObj
+                const x2 = () => {
+                    console.log(`this2 is : ${this}`);//personObj
+                }
+                x2();
+            }
+            x();
+
+            function x3(){
+                console.log("this3 : ",this);//window
+            }
+            x3();
+        }
+    }
+    personObj.sayHi();
+
+</script>
+
+</html>

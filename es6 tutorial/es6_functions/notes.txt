@@ -1,0 +1,6 @@
+Arrow function, introduced in ES6 (ECMASCRIPT 2015), provides a concise syntax of writing the function
+
+
+Syntax : 
+const <function_name> = (<list_of_parameters>) => {
+}

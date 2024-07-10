@@ -1,0 +1,57 @@
+<html>
+
+<head></head>
+
+<body>
+
+</body>
+<script>
+    class Employee {
+        #empId;//i dont want to access or display the employee id outside class
+        #empName;
+        #empDepart;
+
+        constructor(empId,empName,empDepart){
+         this.#empId=empId;
+         this.#empName=empName;
+         this.#empDepart = empDepart;
+        }
+
+        get employeeName(){
+            return this.#empName;
+        }
+
+        set employeeName(empName){
+            this.#empName = empName;
+        }
+
+        get employeeDepart(){
+            return this.#empDepart;
+        }
+
+        set employeeDepart(empDepart){
+             this.#empDepart = empDepart;
+        }
+
+        get employeeDetails(){
+            return {
+                emp_name : this.#empName,
+                emp_depart : this.#empDepart
+            }
+        }
+
+        showEmployeeDetails(){
+            console.log(`
+            Name : ${this.#empName} | Depart : ${this.#empDepart}
+            `);
+        }
+
+    }
+    let ob1 = new Employee(1,"Amit Sinha","Engineering");
+    let details = ob1.employeeDetails;
+    console.log("The employee name is : Mr "+details.emp_name);
+    console.log("The employee depart of seecog softwares is : "+details.emp_depart);
+
+</script>
+
+</html>

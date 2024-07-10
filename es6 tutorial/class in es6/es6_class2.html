@@ -1,0 +1,74 @@
+<html>
+
+<head></head>
+
+<body></body>
+<script>
+    //         title , author , isbn, publicationYear, numPages
+    // Create parameterized constructor , instance methods (getBookInfo) , getter + setter methods , static methods (compareBookByPages(ob1,ob2)
+    //   ,  issameAuthor(book1,book2))
+
+    class Book {
+        #title;
+        #author;
+        #isbn;
+        #publicationYear;
+        #numPages;
+        static #bookInLibrary=0;
+        
+        constructor(title, author, isbn, publicationYear, numPages) {
+            this.#title = title;
+            this.#author = author;
+            this.#isbn = isbn;
+            this.#publicationYear = publicationYear;
+            this.#numPages = numPages;
+            Book.#bookInLibrary++;
+        }
+        get bookTitle() {
+            return this.#title;
+        }
+        set bookTitle(title) {
+            this.#title = title;
+        }
+        get bookNumPages(){
+            return this.#numPages;
+        }
+        getBookInfo() {
+            return {
+                title: this.#title,
+                author: this.#author,
+                isbn: this.#isbn,
+                publicationYear: this.#publicationYear,
+                numPages: this.#numPages
+            }
+        }
+        static compareBookByPages(book1, book2) {
+            console.log(book1,"--",book2)
+            if (book1.bookNumPages > book2.bookNumPages) {
+                return `${book1.bookTitle} has more pages then ${book2.bookTitle}`;
+            }
+            else {
+                return `${book2.bookTitle} has more pages then ${book1.bookTitle}`;
+            }
+        }
+        static issameAuthor(book1, book2) {
+            if (book1.author == book2.author) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        static totalBookCount(){
+            return Book.#bookInLibrary;
+        }
+
+    }
+    let ob1 = new Book("let us c", "Yashwant kanetkar", "ii565", 2024, 230);
+    let ob2 = new Book("Play with c", "Yogender singh", "ii9878", 2024, 400);
+    console.log("Book compare : "+Book.compareBookByPages(ob1, ob2));
+    console.log("Total Books : "+Book.totalBookCount());
+</script>
+
+</html>
