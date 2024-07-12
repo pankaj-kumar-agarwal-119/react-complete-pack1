@@ -1,0 +1,2 @@
+Es6 introduced a native module system to export and import.
+It is used for better code reuse and utilization

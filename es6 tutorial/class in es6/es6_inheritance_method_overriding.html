@@ -1,0 +1,140 @@
+<html>
+
+<head></head>
+
+<body></body>
+<script>
+    class Employee {
+        //all data members are public in nature
+        #empId;
+        #empName;
+        #empDepart;
+        static #empCount = 0;
+
+        constructor(empId, empName, empDepart) {
+            this.#empId = empId;
+            this.#empName = empName;
+            this.#empDepart = empDepart;
+            Employee.#empCount++;
+        }
+
+
+        get empId() {
+            return this.#empId;
+        }
+
+
+        set empId(value) {
+            this.#empId = value;
+        }
+
+
+        get empName() {
+            return this.#empName;
+        }
+
+
+        set empName(value) {
+            this.#empName = value;
+        }
+
+
+        get empDepart() {
+            return this.#empDepart;
+        }
+
+
+        set empDepart(value) {
+            this.#empDepart = value;
+        }
+
+
+        get empDetails() {
+            return {
+                empId: this.#empId,
+                empName: this.#empName,
+                empDepart: this.#empDepart
+            }
+        }
+
+
+        //instance method
+        displayEmpdetails() {
+            console.log(`
+        Emp Id : ${this.#empId}
+        Emp Name : ${this.#empName}
+        Emp Department : ${this.#empDepart}
+        `);
+        }
+
+
+        //static methods
+        static companyName() {
+            return `Eduhump Technologies`;
+        }
+
+
+        static empDetails(empObj) {
+            console.log(`
+        Emp Id : ${empObj.empId}
+        Emp Name : ${empObj.empName}
+        Emp Department : ${empObj.empDepart}
+        `);
+        }
+
+
+        static getTotalEmployee() {
+            return Employee.#empCount;
+        }
+
+
+    }
+    class Manager extends Employee {
+        #totalmembers;
+        constructor(empId, empName, empDepart, totalmembers) {
+            super(empId, empName, empDepart);
+            this.#totalmembers = totalmembers;
+        }
+        get totalmembers() {
+            return this.#totalmembers;
+        }
+        set totalmembers(value) {
+            this.#totalmembers = totalmembers;
+        }
+
+
+        //method overrinding
+        displayEmpdetails() {
+            super.displayEmpdetails();
+            
+            console.log(`Total team members : ${this.#totalmembers}`);
+        }
+
+
+    }
+    /*
+    The benefit of using getter method is that they can be accessed like normal class public data members
+    
+    
+    */
+    Employee.companyName();
+    // console.log(`--------------------------`);
+    let ob1 = new Employee("112", "Mohan", "Engineering");
+    // ob1.displayEmpdetails();
+    // //accessing the getter setter method
+    // let ob1EmpId = ob1.empId;//accessing the getter method
+    // console.log("The emp id is : ",ob1EmpId)
+    // ob1.empDepart = "HR solutions";//accessing the setter method
+    // ob1.displayEmpdetails();//accessing the instance method
+
+
+    let ob2 = new Employee("113", "Sohan", "Engineering");
+    // Employee.empDetails(ob2);
+    // console.log(`-------------------------`);
+    // console.log(`Total employee countb : ${Employee.getTotalEmployee()}`);
+    let m1 = new Manager("111", "Mohan", "Engineering", 2);
+    m1.displayEmpdetails();
+    console.log(`Total employe : ${Manager.getTotalEmployee()}`);
+</script>
+
+</html>
