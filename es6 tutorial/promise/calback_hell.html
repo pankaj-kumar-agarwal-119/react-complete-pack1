@@ -1,0 +1,59 @@
+<html>
+
+<head></head>
+
+<body>
+
+</body>
+<script>
+    function fetchUser(userId, callback) {
+        setTimeout(() => {
+            console.log("fetched user");
+            callback(null, { userId: userId, name: "Mohan" });
+        }, 1000);
+    }
+    function fetchPosts(userId, callback) {
+        setTimeout(() => {
+            console.log("fetched posts");
+            callback(null, [
+                { postId: 1, content: "Post 1" },
+                { postId: 2, content: "Post 2" }
+            ])
+        }, 1000);
+    }
+    function fetchComments(postId, callback) {
+        setTimeout(() => {
+            console.log(`Fetched comments for post : ${postId}`);
+            callback(null, [
+                { commentId: 1, content: "Comment 1" },
+                { commentId: 2, content: "Comment 2" },
+            ])
+        }, 1000);
+    }
+    fetchUser(1, (err, user) => {
+        if (err) {
+            console.log("fetchUser err : ", err);
+            return;
+        }
+        console.log("Fetched user : ", user);
+        fetchPosts(user.userId, (err, posts) => {
+            if (err) {
+                console.log("fetchPosts err : ", err);
+                return;
+            }
+            console.log("Poss : ", posts);
+            posts.forEach((post) => {
+                fetchComments(post.postId, (err, comments) => {
+                    if (err) {
+                        console.log("fetchComments err : ", err);
+                        return;
+                    }
+                    console.log("The final comments : ", comments);
+                })
+            })
+        })
+
+    })
+</script>
+
+</html>
