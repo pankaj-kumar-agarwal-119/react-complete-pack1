@@ -1,0 +1,18 @@
+The set object in es6 let us store the unique values of any type, whether primitive values or object references.
+A set can be useful when we need to ensure that here will be no duplicate data
+
+Features : 
+=>Unique values 
+=> values are compared for equality based on the deep algorithm
+
+Operations : 
+1)Create : new Set()
+2)Remove : set.delete(ent)
+3)Checing existance : set.has()
+4)Iterate : 
+i)for(let item of set){}
+ii)set.foreach((value)=>{})
+5)Size : set.size 
+6)Clear : set.clear()
+7)Convert set into array : 
+let array = Array.from(set);

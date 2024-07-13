@@ -1,0 +1,14 @@
+map is a collection in es6. It has key and value pair like objects.
+map has a lot of redymade methods that helps us to operate on map entity(object) more efficintely
+
+Diff operations : 
+i)Create a map
+ii)Adding elements
+iii)Accessing elements
+iv)Removing elements
+v)Checking for existance
+vi)Iterating over map
+vii)Size of map 
+viii)clearing map 
+ix)Using Objects as keys 
+x)Using function as a key 
