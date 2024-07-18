@@ -1,4 +1,5 @@
 import { isLabelWithInternallyDisabledControl } from "@testing-library/user-event/dist/utils";
+import { MouseEvent } from "react";
 
 let message = "Hello World";
 //Typescript infers the type os message as string
